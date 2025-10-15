@@ -6,7 +6,7 @@ class Sequence {
 
     private:
     std::string* data;
-    size_t numElements;
+    size_t numElts;
 
     public:
     Sequence(size_t sz = 0);

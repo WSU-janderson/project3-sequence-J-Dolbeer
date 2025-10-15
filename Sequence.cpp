@@ -32,3 +32,21 @@ Sequence::~Sequence() {
     numElts = 0;
 }
 
+// The current sequence is released and replaced by a (deep) copy of sequence
+// s. A reference to the copied sequence is returned (return *this;).
+Sequence& Sequence::operator=(const Sequence& s) {
+    if (this == &s) {
+        return *this;
+    }
+    delete[] data;
+    numElts = s.numElts;
+    if (numElts == 0) {
+        data = nullptr;
+    } else {
+        data = new std::string[numElts];
+        for (size_t i = 0; i < numElts; i++) {
+            data[i] = s.data[i];
+        }
+    }
+    return *this;
+}

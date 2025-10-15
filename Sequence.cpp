@@ -10,3 +10,16 @@ Sequence::Sequence(size_t sz) {
         data = new std::string[sz];
     }
 }
+
+// Creates a (deep) copy of sequence s
+Sequence::Sequence(const Sequence& s) {
+    numElts = s.numElts;
+    if (numElts == 0) {
+        data = nullptr;
+    } else {
+        data = new std::string[numElts];
+        for (size_t i = 0; i < numElts; i++) {
+            data[i] = s.data[i];
+        }
+    }
+}

@@ -50,3 +50,14 @@ Sequence& Sequence::operator=(const Sequence& s) {
     }
     return *this;
 }
+
+// The position satisfies ( position >= 0 && position <= last_index() ).
+// The return value is a reference to the item at index position in the
+// sequence. Throws an exception if the position is outside the bounds
+// of the sequence
+std::string& Sequence::operator[](size_t position) {
+    if (position >= numElts) {
+        throw std::out_of_range("Index out of range");
+    }
+    return data[position];
+}

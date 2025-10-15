@@ -23,3 +23,12 @@ Sequence::Sequence(const Sequence& s) {
         }
     }
 }
+
+// Destroys all items in the sequence and release the memory
+// associated with the sequence
+Sequence::~Sequence() {
+    delete[] data;
+    data = nullptr;
+    numElts = 0;
+}
+

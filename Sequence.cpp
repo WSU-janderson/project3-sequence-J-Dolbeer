@@ -61,3 +61,18 @@ std::string& Sequence::operator[](size_t position) {
     }
     return data[position];
 }
+
+// The value of item is append to the sequence.
+void Sequence::push_back(std::string item) {
+    size_t newSize = numElts + 1;
+    std::string* newData = new std::string[newSize];
+
+    for (size_t i = 0; i < numElts; i++) {
+        newData[i] = data[i];
+    }
+
+    newData[numElts] = item;
+    delete[] data;
+    data = newData;
+    numElts++;
+}
